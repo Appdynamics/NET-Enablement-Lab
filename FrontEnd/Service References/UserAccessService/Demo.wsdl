@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://appdynamics.com/Demo" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://appdynamics.com/Demo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://appdynamics.com/Demo/Imports">
+      <xsd:import namespace="http://appdynamics.com/Demo" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UserAccessService_ValidateAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAccess" />
+  </wsdl:message>
+  <wsdl:message name="UserAccessService_ValidateAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserAccessService_Authenticate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="UserAccessService_Authenticate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserAccessService">
+    <wsdl:operation name="ValidateAccess">
+      <wsdl:input wsaw:Action="ValidateAccess" message="tns:UserAccessService_ValidateAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://appdynamics.com/Demo/UserAccessService/ValidateAccessResponse" message="tns:UserAccessService_ValidateAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:input wsaw:Action="Authenticate" message="tns:UserAccessService_Authenticate_InputMessage" />
+      <wsdl:output wsaw:Action="http://appdynamics.com/Demo/UserAccessService/AuthenticateResponse" message="tns:UserAccessService_Authenticate_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1c5614fc-ee83-4358-a8d9-4a96794082c8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/MiddleTier/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Demo.wsdl" MetadataType="Wsdl" ID="8594421f-3fcb-4501-9b3e-9d96d6326553" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MiddleTier/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b1cc52ec-d575-4324-9ada-bb4ede873919" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MiddleTier/Service1/mex" />
+    <MetadataFile FileName="Demo.xsd" MetadataType="Schema" ID="84b559b7-364a-4eb8-b9b0-003ac9b13853" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MiddleTier/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b9c20207-e7aa-4383-9cb0-133892bb9605" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MiddleTier/Service1/mex" />
+    <MetadataFile FileName="MiddleTier.xsd" MetadataType="Schema" ID="977f497f-124a-4d0e-a233-015b2245e470" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MiddleTier/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
