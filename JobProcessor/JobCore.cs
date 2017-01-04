@@ -34,36 +34,44 @@ namespace JobProcessor
 
             while(running)
             {
-                var logic = new JobManagement.JobsCore(ConfigurationManager.AppSettings["database"]);
-                var jobs = logic.GetJobs();
-
-                foreach(var job in jobs)
+                try
                 {
-                    string type;
-                    IDictionary<string, string> parameters;
-                    logic.GetJobDetails(job, out type, out parameters);
 
-                    ProcessJob(type, parameters);
+                    var logic = new JobManagement.JobsCore(ConfigurationManager.AppSettings["database"]);
+                    var jobs = logic.GetJobs();
 
-                    count++;
+                    foreach (var job in jobs)
+                    {
+                        string type;
+                        IDictionary<string, string> parameters;
+                        logic.GetJobDetails(job, out type, out parameters);
 
-                    // Mark this job as complete asynchronously
-                    logic.FinishJob(job);
+                        ProcessJob(type, parameters);
 
-                    if (!running)
-                        break;
+                        count++;
+
+                        // Mark this job as complete asynchronously
+                        logic.FinishJob(job);
+
+                        if (!running)
+                            break;
+                    }
+
+                    if (jobs.Count == 0)
+                        Thread.Sleep(500);
+
+                    // Delete old jobs periodically
+                    if (count > 100)
+                    {
+                        count = 0;
+
+                        // Delete olbs jobs asynchronously
+                        logic.DeleteOldJobs();
+                    }
                 }
-
-                if(jobs.Count == 0)
-                    Thread.Sleep(500);
-
-                // Delete old jobs periodically
-                if(count > 100)
+                catch(Exception ex)
                 {
-                    count = 0;
-
-                    // Delete olbs jobs asynchronously
-                    logic.DeleteOldJobs();
+                    System.Diagnostics.EventLog.WriteEntry("JobProcessor", ex.ToString());
                 }
             }
         }
