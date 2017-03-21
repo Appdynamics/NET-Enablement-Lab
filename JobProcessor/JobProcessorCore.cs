@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace JobProcessor
 {
-    class JobCore
+    class JobProcessorCore
     {
         private bool running = false;
         private Task task = null;

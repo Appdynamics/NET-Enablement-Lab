@@ -17,7 +17,7 @@ namespace JobProcessor
             InitializeComponent();
         }
 
-        private static JobCore core = new JobCore();
+        private static JobProcessorCore core = new JobProcessorCore();
 
         protected override void OnStart(string[] args)
         {

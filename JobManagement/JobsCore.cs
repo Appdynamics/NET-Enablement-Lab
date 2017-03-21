@@ -107,9 +107,14 @@ namespace JobManagement
 
         private static string SerializeParameters(IDictionary<string, string> values)
         {
-            if (values == null)
+            if (values == null || values.Count == 0)
                 return string.Empty;
 
+            var data = Newtonsoft.Json.JsonConvert.SerializeObject(values);
+
+            return data;
+
+            /* Manual serialization, replaced with JSON
             List<string> items = new List<string>();
             foreach (var i in values)
                 items.Add(string.Concat(i.Key, "=", System.Net.WebUtility.UrlEncode(i.Value)));
@@ -117,6 +122,7 @@ namespace JobManagement
             string data = string.Join("&", items);
 
             return data;
+            */
         }
 
         public static IDictionary<string, string> DeserializeParameters(string value)
@@ -124,6 +130,11 @@ namespace JobManagement
             if (string.IsNullOrEmpty(value))
                 return new Dictionary<string,string>();
 
+            var res = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(value);
+
+            return res;
+
+            /* Manual serialization, replaced with JSON
             var values = value.Split('&');
             var res = new Dictionary<string,string>();
 
@@ -134,6 +145,7 @@ namespace JobManagement
             }
 
             return res;
+            */
         }
     }
 }

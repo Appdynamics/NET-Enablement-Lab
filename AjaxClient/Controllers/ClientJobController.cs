@@ -15,9 +15,11 @@ namespace AjaxClient.Controllers
         [HttpGet]
         public async Task<string> ScheduleDailyReport(string userID, string reportType)
         {
-            var client = new ServiceReference.ScheduleServiceClient();
+            reportType = "You-Got-It-Right!-" + reportType;
 
             var p = new Dictionary<string,string> { { "userID", userID}, { "reportType", reportType }, { "duration", "890" } };
+
+            var client = new ServiceReference.ScheduleServiceClient();
 
             return await client.ScheduleJobAsync("dailyreport", p);
         }
@@ -26,9 +28,11 @@ namespace AjaxClient.Controllers
         [HttpGet]
         public async Task<string> ScheduleWeeklyReport(string userID, string reportType)
         {
-            var client = new ServiceReference.ScheduleServiceClient();
+            reportType = "You-Got-It-Right!-" + reportType;
 
             var p = new Dictionary<string, string> { { "userID", userID }, { "reportType", reportType }, { "duration", "2350" } };
+
+            var client = new ServiceReference.ScheduleServiceClient();
 
             return await client.ScheduleJobAsync("weeklyreport", p);
         }
@@ -37,9 +41,11 @@ namespace AjaxClient.Controllers
         [HttpGet]
         public async Task<string> StartOndemandReport(string userID, string reportType)
         {
-            var client = new ServiceReference.ScheduleServiceClient();
+            reportType = "You-Got-It-Right!-" + reportType;
 
             var p = new Dictionary<string, string> { { "userID", userID }, { "reportType", reportType }, { "duration", "250" } };
+
+            var client = new ServiceReference.ScheduleServiceClient();
 
             return await client.ScheduleJobAsync("ondemandreport", p);
         }
