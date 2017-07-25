@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Collections.Specialized;
+using System.Runtime.CompilerServices;
 
 namespace JobManagement
 {
@@ -19,6 +20,7 @@ namespace JobManagement
         private JobsModel context = null;
         private string cs;
 
+        [MethodImpl(MethodImplOptions.NoInlining)]
         public List<string> GetJobs()
         {
             var jobs = context.Jobs.Where((job) => job.status > 0).Select((job) => job.guid);

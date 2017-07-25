@@ -40,6 +40,9 @@ namespace JobProcessor
                     var logic = new JobManagement.JobsCore(ConfigurationManager.AppSettings["database"]);
                     var jobs = logic.GetJobs();
 
+                    // Process up to 100 items in one cycle
+                    jobs = jobs.GetRange(0, Math.Min(jobs.Count, 100));
+
                     foreach (var job in jobs)
                     {
                         string type;
