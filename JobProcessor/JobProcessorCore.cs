@@ -109,7 +109,7 @@ namespace JobProcessor
 
         private static void LogException(Exception ex, string message)
         {
-            // Typically here would be a real exception handling code, nputting a simle placeholder to log to DB
+            // Typically here would be a real exception handling code, inputting a simple placeholder to log to DB
 
             var logic = new JobManagement.JobsCore(ConfigurationManager.AppSettings["database"]);
             logic.LogError(ex.ToString(), message);
